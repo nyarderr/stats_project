@@ -1,0 +1,538 @@
+---
+title: " "
+output: 
+  pdf_document:
+    toc: true
+    number_sections: true
+    latex_engine: xelatex
+# mainfont: Century Gothic
+geometry: margin=1in
+header-includes:
+  - \usepackage{etoolbox}
+  - \usepackage{array}
+  - \let\oldtabular\tabular
+  - \let\endoldtabular\endtabular
+  - \renewenvironment{tabular}{\fontfamily{cmr}\selectfont\oldtabular}{\endoldtabular}
+include-before:
+  - |
+    \pagenumbering{gobble}
+    \begin{center}
+    \vspace*{2cm}
+    {\LARGE \textbf{UNIVERSITY OF GHANA} \par}
+    \vspace{0.5cm}
+    {\large Department of Computer Science \par}
+    {\large DSCD 603: Statistical Foundation for Data Science \par}
+    \vspace{1cm}
+    {\Large \textbf{STATISTICAL FOUNDATIONS FOR DATA SCIENCE - FINAL REPORT} \par}
+    \vspace{0.5cm}
+    {\large A Comprehensive Analysis of Patient Risk Profiles and Predictive Modeling in Healthcare \par}
+    \vspace{1.5cm}
+    {\large Group 12 \par}
+    \vspace{0.5cm}
+    \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}ll}
+    \hline \textbf{Name} & \textbf{Student ID} \\ \hline
+    Derrick Nyarko & 22425662 \\
+    Israel Padi Teye & 22425162 \\
+    Mariama Musa & 22425081 \\
+    Eric Agbeko Kudah & 22425198 \\
+    Iddriss Naziru & 22425823 \\ \hline
+    \end{tabular*}
+    \vfill
+    {\large 2026-02-25 \par}
+    \end{center}
+    \newpage
+    \pagenumbering{arabic}
+    \setcounter{page}{1}
+---
+
+\newpage
+\tableofcontents
+\listoftables
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(ggplot2)
+library(tidyverse)
+library(haven)
+library(dplyr)
+library(kableExtra)
+library(htmltools)
+library(broom)
+
+data <- read_sav("data/DSCD603 Data.sav")
+```
+
+
+<!-- |Name|Student_ID| -->
+<!-- |---|---| -->
+<!-- |Derrick Nyarko|22425662| -->
+<!-- |Israel Padi Teye|22425162| -->
+<!-- |Mariama Musa|22425081| -->
+<!-- |Eric Agbeko Kudah|22425198| -->
+<!-- |Iddriss Naziru	|22425823| -->
+
+\newpage
+
+# Introduction {.unnumbered}
+This report presents a comprehensive statistical and predictive analysis of a simulated healthcare dataset comprising 300 patients. The primary objective of this analysis is to identify and quantify the demographic, clinical, and lifestyle factors that drive patient health outcomes and overall risk classification. By leveraging both classical statistical methods and modern machine learning algorithms, this report translates raw patient data into actionable clinical insights. The analysis is structured to first explore fundamental biological and behavioral relationships, such as the impact of physical activity on Body Mass Index (BMI), before developing robust predictive models designed to classify high-risk patients. Ultimately, this report aims to bridge the gap between statistical modeling and practical healthcare administration, providing data-driven recommendations for resource allocation and preventative care.
+
+# Executive Overview of Methodology {.unnumbered}
+To ensure a rigorous evaluation of the patient dataset, this analysis was conducted through a multi-phased approach:
+
+- Exploratory Data Analysis and Assumption Testing: Initial assessments, including Shapiro-Wilk and Levene's tests, were conducted to confirm the normality and homogeneity of variance for continuous variables like BMI and Health Score.
+- Hypothesis Testing: Parametric tests, including Independent Samples t-tests and One-Way Analysis of Variance (ANOVA) with Tukey's HSD post-hoc analysis, were utilized to evaluate the relationships between gender, physical activity, and health outcomes.
+- Predictive Modeling: A classical Multiple Logistic Regression model was developed to calculate the specific odds ratios of risk factors contributing to a "High Risk" patient classification.
+- Classification Analysis: A Machine Learning Decision Tree was implemented to provide an alternative, highly interpretable triage model. The performance of both models was rigorously compared using Accuracy, Precision, Recall, and ROC-AUC metrics to determine their suitability for deployment in a clinical setting.
+
+
+\newpage
+# Exploratory Data Analysis
+
+### Variables Selected
+The following variables were selected from the main dataset Age, Gender, Physical Activity, DietQuality, BMI, HealthScore and HighRisk.
+
+|Category|Variable|Description|Data Type|
+|---|---|---|---|
+|Demographic|Age|Age of the patient|Numeric|
+|Demographic|Gender|Gender of the patient|Categorical|
+|Lifestyle|PhysicalActivity|Level of physical activity (Low, Medium, High)|Categorical|
+|Lifestyle|DietQuality|Quality of diet (Poor, Average, Good)|Categorical|
+|Clinical|BMI|Body Mass Index|Numeric|
+|Clinical|HealthScore|Overall health score (0-100)|Numeric|
+|Outcome|HighRisk|Whether the patient is at high risk for a certain condition (Yes,No)|Categorical|
+
+The rationale behind these selections was to explore how lifestyle choices and demographic behaviours combine with physical metrics to influence an individual’s overall risk profile.
+
+
+```{r eda, echo = FALSE, message = FALSE, warning = FALSE, results = "asis" }
+# source("main.R")
+
+eda_data <- data %>%
+  select(PatientID,Age,Gender,PhysicalActivity,DietQuality,BMI,HealthScore,HighRisk) |> 
+  mutate(across(where(is.labelled), as_factor))
+
+## check for missing values
+cat ("Missing values:",mean(is.na(eda_data) * 100), "%\n")
+
+## check for duplicates
+cat("Duplicate PatientIDs:", sum(duplicated(eda_data$PatientID)))
+
+## descriptive statistics for numeric variables
+numeric_vars <- eda_data %>%
+  select(where(is.numeric)) |> 
+  summarise_all(list(mean = mean, median = median, sd = sd, min = min, max = max), na.rm = TRUE)
+
+
+numeric_vars |> 
+  pivot_longer(everything(), names_to = c("Variable", "Statistic"), names_sep = "_") |> 
+  pivot_wider(names_from = Statistic, values_from = value) |> 
+  kable(caption = "Descriptive Statistics for Numerical Variables") |>
+  kable_styling(bootstrap_options = c("striped", "hover"), full_width = TRUE) |> 
+  column_spec(1, bold = TRUE) |>
+  column_spec(2:6, width = "2.5cm") |>
+  add_header_above(c(" " = 1, "Descriptive Statistics" = 5))
+
+
+categorical_vars <- eda_data %>%
+  select(where(is.factor)) |> 
+  names()
+ 
+cat_summary <- map(categorical_vars, function(var) {
+  eda_data %>%
+    count(.data[[var]]) %>%
+    mutate(Percentage = round(n / sum(n) * 100, 1)) %>%
+    rename(Category = 1) |> 
+    as_data_frame() -> summary_df
+})
+
+cat_summary |> 
+  set_names(categorical_vars) |> 
+  imap(function(df, var_name) { # imap lets us use the name for the caption
+    table_html <- kable(df, caption = paste("Frequency distribution for", var_name)) |> 
+      kable_styling(bootstrap_options = c("striped", "hover"), full_width = FALSE) |> 
+      column_spec(1, bold = TRUE, width = "2cm") |> 
+      # Dynamically set the header to span all columns minus the first one
+      add_header_above(setNames(c(1, ncol(df) - 1), c(" ", "Frequency Distribution"))) 
+    cat("\n")             # Add a line break before the table
+    print(table_html)            # Print the LaTeX code
+    cat("\n") 
+  }) -> quiet_sink
+
+```
+
+## Visualizations
+
+```{r plots, echo=FALSE, out.width="50%"}
+
+img_files <- list.files("src/plots", pattern = "eda_plot_.*\\.png", full.names = TRUE)
+knitr::include_graphics(img_files)
+
+```
+
+## Interpretation and Justification of Variables
+The patient population spans a wide age range (22–89 years), with a mean and median both close to 53, suggesting the sample is concentrated among middle-aged to older adults. This is clinically relevant as older age is strongly associated with increased disease burden and complexity of care. Approximately one in four patients (25.3%) is classified as high risk, indicating significant pressure on hospital resources and the need for targeted interventions. The inclusion of lifestyle variables such as physical activity and diet quality alongside clinical measures like BMI and health score allows us to explore how behavioural factors interact with clinical outcomes,which is essential for designing preventive health strategies.
+
+\newpage
+
+# Distributional Assessment and Assumptions
+
+### Variable Selection
+To assess distributional properties and evaluate normality , three continuous variables were selected from the dataset: Age, BMI, and Health Score. 
+These three variables provide a comprehensive view of the patient profile. Age represents a fundamental demographic baseline, BMI serves as a primary clinical measurement, and Health Score acts as a key continuous outcome variable. Evaluating their distributions is necessary to determine whether parametric assumptions hold true for subsequent inferential statistics and predictive modeling
+
+## Visual Assessment
+
+- Histograms
+```{r dist-assessment, echo=FALSE, out.width="50%"}
+
+
+img_files_dist <- list.files("src/plots", pattern = "eda_hist_density.*\\.png", full.names = TRUE)
+knitr::include_graphics(img_files_dist)
+
+```
+
+\newpage
+- Q-Q Plots
+```{r q-q_plots, echo=FALSE, out.width="50%"}
+
+
+img_files_dist <- list.files("src/plots", pattern = "qq.*\\.png", full.names = TRUE)
+knitr::include_graphics(img_files_dist)
+
+```
+
+To initially assess the distributional properties, histograms and Q-Q plots were generated for each variable.
+
+- Age
+  - **Histogram:** The distribution for Age appears highly symmetrical and bell-shaped, closely following the overlaid density curve. The data is well-centered around the 50-year mark without severe skewness.
+  - **Q-Q Plot:** The points on the Normal Q-Q plot tightly hug the 45-degree red reference line across almost the entire range of theoretical quantiles. This strong alignment visually indicates that Age follows a normal distribution.
+
+- BMI
+  - **Histogram:** The BMI histogram displays a slight positive (right) skew. While the bulk of the data is concentrated between 20 and 30, there is a longer tail extending towards the higher BMI values (up to nearly 40). This is typical in      clinical datasets where extreme outlier values exist for body mass.
+  - **Q-Q Plot:** The points on the Q-Q plot follow the reference line well in the center but curve slightly upwards at the extreme upper tail (theoretical quantiles >2). This visually confirms the slight positive skew observed in the         histogram, though the overall deviation is not severe. not follow a normal distribution.
+  
+- Health Score
+  - **Histogram:** The Health Score distribution shows a slight negative (left) skew. The data peaks around a score of 70, with a tail extending to the left toward the lower scores (around 30 to 40).
+  - **Q-Q Plot:** The Q-Q plot reveals that while most of the data aligns well with the normal reference line, the points dip slightly below the line at the lower theoretical quantiles (below -2). This confirms the minor negative skew, indicating the data is largely normal but with a slightly heavier lower tail. observed in the histogram, indicating that Health Score does not follow a normal distribution.
+  
+<!-- \newpage -->
+
+## Formal Normality Tests
+
+To formally evaluate normality beyond visual exploratory charts, the Shapiro-Wilk test was conducted for each variable.
+
+- Hypothesis
+  - **Null Hypothesis (H0)**: The data is normally distributed.
+  - **Alternative Hypothesis (H1)**: The data is not normally distributed.
+
+- Results
+
+```{r shapiro-tests, echo = FALSE, message = FALSE, warning = FALSE, results = "asis" }
+shapiro_age <- shapiro.test(eda_data$Age)
+shapiro_bmi <- shapiro.test(eda_data$BMI)
+shapiro_health <- shapiro.test(eda_data$HealthScore)
+
+shapiro_results <- tibble(
+  Variable = c("Age", "BMI", "Health Score"),
+  W_Statistic = c(shapiro_age$statistic, shapiro_bmi$statistic, shapiro_health$statistic),
+  P_Value = c(shapiro_age$p.value, shapiro_bmi$p.value, shapiro_health$p.value)
+)
+
+shapiro_results |> 
+  kable(caption = "Shapiro-Wilk Test Results for Normality") |>
+  kable_styling(bootstrap_options = c("striped", "hover"), full_width = FALSE) |> 
+  column_spec(1, bold = TRUE, width = "3cm") |> 
+  column_spec(2:3, width = "2.5cm") |> 
+  add_header_above(c(" " = 1, "Shapiro-Wilk Test" = 2))
+```
+
+Based on the graphical assessments and the Shapiro-Wilk test results, the distributions for Age, BMI, and Health Score do not significantly deviate from normality. For all three variables, the p-value is greater than the standard alpha level of 0.05, meaning we fail to reject the null hypothesis of normality. The visual evidence from the histograms and Q-Q plots strongly corroborates these statistical findings. Therefore, parametric assumptions are fully satisfied. Parametric tests (such as Pearson correlation, t-tests, or standard linear regression) will be highly suitable and robust for subsequent statistical modeling and hypothesis testing involving these variables.
+
+
+
+\newpage
+
+# Hypothesis Testing
+
+For this task, two distinct research questions were formulated to investigate the relationships between demographic/lifestyle factors and clinical outcomes within the patient population.
+
+## Hypothesis 1: Gender and Overall Health
+- **Research Question**: Is there a statistically significant difference in the mean Health Score between male and female patients?
+- **Selected Variables**: Gender (Categorical, 2 groups: Male/Female) and Health Score (Continuous)
+- **Choice of Test and Justification**: An Independent Samples t-test was selected for this analysis. This parametric test is appropriate because we are comparing the means of two independent groups on a continuous dependent variable. Furthermore, the distributional assessment in Task 2 confirmed that Health Score is normally distributed, satisfying the primary assumption for this test
+
+### Hypothesis
+- Null Hypothesis (H0): There is no significant difference in the mean Health Score between male and female patients
+- Alternative Hypothesis (H1): There is a significant difference in the mean Health Score between male and female patients
+
+### Results
+```{r t-test, echo = FALSE, message = FALSE, warning = FALSE, results = "asis" }
+t_test_result <- t.test(HealthScore ~ Gender, data = eda_data)
+t_test_summary <- tibble(
+  Group = c(" Male", "Female"),
+  Mean_Health_Score = c(mean(eda_data$HealthScore[eda_data$Gender == "Male"]), mean(eda_data$HealthScore[eda_data$Gender == "Female"])),
+  T_Statistic = t_test_result$statistic,
+  P_Value = t_test_result$p.value
+)
+
+t_test_summary |> 
+  kable(caption = "Independent Samples t-test Results for Gender and Health Score") |>
+  kable_styling(bootstrap_options = c("striped", "hover"), full_width = FALSE) |> 
+  column_spec(1, bold = TRUE, width = "3cm") |> 
+  column_spec(2:4, width = "2.5cm") |> 
+  add_header_above(c(" " = 1, "t-test Summary" = 3))
+
+```
+
+### Interpretation and Practical Relevance
+An independent samples t-test was conducted to determine if overall health scores differed based on gender. The results indicate that there is no statistically significant difference in the mean Health Score between males (M=65.41) and females (M=65.64); t(298)= -0.219, p=0.827. Because the p-value is greater than 0.05, we fail to reject the null hypothesis.
+
+In a practical healthcare context, this finding suggests that within this hospital's patient population, biological sex or gender is not a primary driver of a patient's overall health risk profile. Consequently, hospital management does not necessarily need to design gender-specific interventions for general health improvement. Instead, resources might be better allocated toward lifestyle or clinical factors that have a more direct impact on health outcomes.
+
+\newpage
+## Hypothesis 2: Physical Activity and BMI
+- **Research Question**: Does a patient's average Body Mass Index (BMI) differ significantly across different levels of physical activity?
+- **Selected Variables**: Physical Activity (Categorical, 4 groups: Sedentary, Low, Medium, High) and BMI (Continuous)
+- **Choice of Test and Justification**: A One-Way Analysis of Variance (ANOVA) was selected. This parametric test is the correct choice because we are comparing the means of more than two independent groups on a continuous dependent variable. The normality of the BMI variable, established in Task 2, satisfies the first core assumption required for ANOVA. Furthermore, Levene's test was conducted to assess the assumption of homogeneity of variances, yielding a non-significant result (F=1.395,p=0.244). This confirms that the variance in BMI is statistically equal across all physical activity groups, making standard ANOVA fully appropriate.
+
+### Hypothesis
+- **Null Hypothesis (H0)**: There is no significant difference in mean BMI across the four levels of physical activity
+of physical activity
+- **Alternative Hypothesis (H1)**: At least one physical activity group has a significantly different mean BMI compared to the others
+
+
+### Results
+```{r anova, echo = FALSE, message = FALSE, warning = FALSE, results = "asis" }
+
+
+levenes_test <- car::leveneTest(BMI ~ PhysicalActivity, data = eda_data) 
+levenes_summary <- tibble(
+  Source = "Levene's Test for Homogeneity of Variances",
+  F_Statistic = levenes_test$`F value`[1],
+  P_Value = levenes_test$`Pr(>F)`[1]
+)
+
+levenes_summary |> 
+  kable(caption = "Levene's Test Results for Homogeneity of Variances") |>
+  kable_styling(bootstrap_options = c("striped", "hover"), full_width = FALSE) |> 
+  column_spec(1, bold = TRUE, width = "4cm") |> 
+  column_spec(2:3, width = "3cm") |> 
+  add_header_above(c(" " = 1, "Levene's Test Summary" = 2))
+
+anova_result <- aov(BMI ~ PhysicalActivity, data = eda_data)
+anova_summary <- summary(anova_result)
+group_means <- eda_data %>%
+  group_by(PhysicalActivity) %>%
+  summarise(Mean_BMI = mean(BMI, na.rm = TRUE)) |>
+  ungroup()
+
+anova_table <- tibble(
+  Source = c("Between Groups", "Within Groups", "Total"),
+  Sum_Squares = c(anova_summary[[1]]$`Sum Sq`[1], anova_summary[[1]]$`Sum Sq`[2], sum(anova_summary[[1]]$`Sum Sq`)),
+  Degrees_of_Freedom = c(anova_summary[[1]]$Df[1], anova_summary[[1]]$Df[2], sum(anova_summary[[1]]$Df)),
+  Mean_Squares = c(anova_summary[[1]]$`Mean Sq`[1 ], anova_summary[[1]]$`Mean Sq`[2], NA),
+  F_Statistic = c(anova_summary[[1]]$`F value`[1 ], NA, NA),
+  P_Value = c(anova_summary[[1]]$`Pr(>F)`[ 1], NA, NA)
+)
+
+anova_table |>
+  kable(caption = "One-Way ANOVA Results for Physical Activity and BMI") |>
+  kable_styling(bootstrap_options = c("striped", "hover"), full_width = FALSE) |>
+  column_spec(1, bold = TRUE, width = "2cm") |>
+  column_spec(2:6, width = "2.6cm") |>
+add_header_above(c(" " = 1, "ANOVA Summary" = 5))
+
+cat("\n\\newpage\n")
+
+tuskey_result <- TukeyHSD(anova_result)
+
+tuskey_summary <- as_tibble(tuskey_result$PhysicalActivity, rownames = "Comparison") |>
+  rename( Mean_Difference = diff, Lower_CI = lwr, Upper_CI = upr, P_Value = `p adj`) |>
+  select(Comparison, Mean_Difference, Lower_CI, Upper_CI, P_Value ) |>
+  mutate(Significant = ifelse(P_Value < 0.05, "Yes", "No"))
+
+tuskey_summary |>
+  kable(caption = "Tukey's HSD Post-Hoc Test Results for Physical Activity and BMI") |>
+  kable_styling(bootstrap_options = c("striped", "hover"), full_width = FALSE) |>
+  column_spec(1, bold = TRUE, width = "2cm") |>
+  column_spec(2:6, width = "2.5cm") |>
+  add_header_above(c(" " = 1, "Tukey's HSD Post-Hoc Test Summary" = 4))
+
+
+
+```
+
+
+A **one-way ANOVA** was conducted to determine if a patient's BMI was significantly influenced by their level of physical activity. The results revealed a statistically significant difference in BMI across the four physical activity groups; F(3,296)=17.273,p<0.001. Because the p-value is significantly less than the alpha level of 0.05, we reject the null hypothesis.
+
+In a practical healthcare context, this finding is highly actionable. It statistically confirms that a patient's lifestyle, specifically their physical activity level, is strongly associated with their BMI profile. For hospital management, this strongly justifies the allocation of resources toward preventative care initiatives. Implementing inpatient physical therapy consultations, prescribing exercise routines upon discharge, or funding community wellness programs could serve as highly effective, data-driven strategies to proactively manage patient weight and mitigate the secondary clinical risks (and readmission rates) associated with high BMI. 
+
+To pinpoint exactly where these differences lie, a **Tukey’s Honest Significant Difference (HSD)** post-hoc test was conducted. The analysis revealed that there is no statistically significant difference in BMI between the Sedentary and Low activity groups (p=0.142), nor is there a significant difference between the Moderate and High groups (p=0.206). However, achieving at least a "Moderate" level of physical activity resulted in a statistically significant decrease in BMI compared to both the Sedentary (p<0.001) and Low (p=0.049) groups. For hospital management, this provides a highly targeted clinical insight: preventative wellness programs do not need to mandate high-intensity exercise to be effective. Instead, interventions should focus specifically on transitioning patients out of the sedentary/low activity bracket and into moderate, sustainable physical activity to achieve meaningful improvements in BMI.
+
+\newpage
+
+# Modeling and Prediction
+
+## Model selection and justification
+- Chosen Outcome Variable: **High Risk (Categorical: Yes/No)**
+- Chosen Model: **Binary Logistic Regression**
+
+## Model Justification
+A binary logistic regression model was selected to predict the likelihood of a patient being classified as "High Risk." This classical statistical model is the most appropriate choice because the outcome variable is dichotomous (Yes/No). Unlike standard linear regression, which assumes a continuous outcome and can predict impossible values outside the bounds of probability, logistic regression uses a logit function to constrain the predicted output to a probability strictly between 0 and 1. This provides an intuitive, interpretable percentage representing a patient's risk level.
+
+## Model Assumptions
+Before interpreting the predictive capabilities of the model, several core assumptions of logistic regression must be acknowledged
+
+1. **Independence of Observations**: Each patient's data is assumed to be independent of others. This is likely satisfied given that the dataset represents individual patient records without repeated measures.
+2. **Linearity of Logits**: Continuous predictors (Age and BMI) are assumed to have a linear relationship with the log-odds of the outcome.
+3. **Absence of Multicollinearity**: The model assumes that predictor variables are not highly correlated with each other, which could distort the estimation of coefficients.
+4. **Binary Outcome**: The dependent variable must be dichotomous, which is satisfied by the "High Risk" (Yes/No) indicator.
+
+
+```{r logistic-regression, echo = FALSE, message = FALSE, warning = FALSE, results = "asis" }
+logistic_model <- glm(HighRisk ~ Age + BMI + PhysicalActivity + DietQuality, data = eda_data, family = binomial)
+
+model_summary <- tidy(logistic_model) |> 
+  mutate(OR = exp(estimate), 
+         Lower_CI = exp(estimate - 1.96 * std.error), 
+         Upper_CI = exp(estimate + 1.96 * std.error),
+         Significant = ifelse(p.value < 0.05, "Yes", "No")) |>
+  select(term, OR, Lower_CI, Upper_CI, p.value, Significant) |>
+  rename(Predictor = term, P_Value = p.value) |>
+  kable(caption = "Binary Logistic Regression Results for Predicting High Risk") |>
+  kable_styling(bootstrap_options = c("striped", "hover"), full_width = FALSE) |>
+  column_spec(1, bold = TRUE, width = "3cm") |>
+  column_spec(2:5, width = "2.8cm") |> 
+  add_header_above(c(" " = 1, "Logistic Regression Summary" = 4))
+
+model_summary
+
+```
+
+\newpage
+
+## Model Results and Interpretation
+
+The multiple logistic regression model was successfully fitted to predict the binary "High Risk" outcome using Age, BMI, Physical Activity, and Diet Quality.
+
+### Significant Predictors:
+The model revealed that Age and Physical Activity are statistically significant predictors of a patient's risk status (p<0.05).
+
+- **Age**: Age is a highly significant positive predictor (p<0.001). The Odds Ratio of 1.092 indicates that holding all other variables constant, every one-year   increase in a patient's age increases the odds of being classified as "High Risk" by approximately 9.2%.
+- **Physical Activity**: Using "Sedentary" as the baseline reference group, engaging in physical activity acts as a significant protective factor. Patients with "Low" physical activity have 61.2% lower odds of being high risk compared to sedentary patients (OR=0.388,p=0.028). Similarly, patients with "High" physical activity have 68.5% lower odds of being high risk compared to their sedentary counterparts (OR=0.314,p=0.013).
+
+### Non-Significant Predictors:
+Interestingly, when controlling for age and physical activity, neither BMI (p=0.529) nor self-reported Diet Quality (p>0.05 across all levels) were statistically significant predictors of the High Risk classification in this specific multivariable model.
+
+### Practical Implications for Hospital Management:
+These findings provide crucial insights for hospital resource allocation. Because Age is a massive, unchangeable driver of risk, triage systems should heavily weight demographic age. However, the data also proves that moving a patient from "Sedentary" to even "Low" physical activity yields a drastic reduction in their odds of entering the high-risk category. Therefore, clinical interventions do not necessarily need to focus solely on strict diet overhauls or aggressive weight loss (BMI reduction); instead, low-barrier, gentle physical activity programs represent the most statistically effective, modifiable lifestyle intervention for reducing overall patient risk.
+
+
+
+## Model Performance Evaluation
+
+To evaluate the predictive performance of the logistic regression model, a confusion matrix was generated using a standard 0.5 probability classification threshold.
+
+Results
+
+- True Positives (TP): 30
+- True Negatives (TN): 208
+- False Positives (FP): 16
+- False Negatives (FN): 46
+- Overall Accuracy: 79.33%
+  
+## Evaluation and Critical Reflection:
+The logistic regression model achieved an overall accuracy of 79.33%. While the model is highly effective at identifying low-risk patients (208 true negatives compared to only 16 false positives), its performance reveals a clinical vulnerability regarding high-risk detection. The model produced 46 false negatives, meaning it failed to flag a significant portion of the actual high-risk population. In an applied healthcare setting, false negatives are the most dangerous type of error, as critically ill patients may be discharged without intervention. This suggests that while Age and Physical Activity are statistically significant drivers of risk, hospital management would need to include additional clinical biomarkers (such as blood pressure or genetic history) into the model to improve its sensitivity before deploying it as a standalone diagnostic tool.
+
+<!-- \newpage -->
+
+# Classification Analysis
+
+## Alternative Classification Approach: Machine Learning
+
+To satisfy the requirement of comparing alternative approaches for categorical outcomes, a machine learning Decision Tree classifier was implemented to predict the "High Risk" classification. This serves as a direct comparison to the classical Logistic Regression model developed in Task 4.
+
+```{r decision-tree, echo=FALSE, out.width="100%"}
+img_files_dist <- list.files("src/plots", pattern = "decision_tree*\\.png", full.names = TRUE)
+knitr::include_graphics(img_files_dist)
+
+```
+
+## Model Performance and Evaluation
+The Decision Tree was evaluated using a confusion matrix and robust classification metrics to assess its clinical viability.
+
+- True Positives (TP): 35
+- True Negatives (TN): 212
+- False Positives (FP): 12
+- False Negatives (FN): 41
+- Overall Accuracy: 82.33%
+- Precision: 0.7447
+- Recall: 0.4605
+- ROC-AUC: 0.704
+
+```{r roc-auc, echo=FALSE, out.width="100%"}
+img_files_dist <- list.files("src/plots", pattern = "roc_curve_plot*\\.png", full.names = TRUE)
+knitr::include_graphics(img_files_dist)
+
+```
+
+## Interpretation of Machine Learning Performance
+The Decision Tree achieved an overall accuracy of 82.33% and an AUC of 0.704, indicating a fair to good ability to discriminate between risk profiles. Its precision score of 74.47% demonstrates high reliability when flagging a patient; nearly three-quarters of the patients it identifies as high-risk genuinely belong in that category, which minimizes wasted clinical resources on false alarms. However, the recall score of 46.05% remains a clinical vulnerability, as the model still fails to identify over half of the actual high-risk population (41 false negatives).
+
+## Comparison and Suitability for Healthcare Decision-Making
+Both models present distinct advantages for healthcare administration, but they serve different analytical purposes:
+
+- **Suitability of Logistic Regression**: The classical Logistic Regression model is mathematically superior for identifying the underlying mechanisms of health. It allows administrators to quantify the exact odds associated with specific risk factors (e.g., calculating the precise percentage by which age increases risk). However, it operates as a mathematical equation that cannot be easily calculated by bedside staff without integrated software.
+
+- **Suitability of Decision Trees**: The Decision Tree slightly outperformed the Logistic Regression in sheer predictive accuracy on this dataset (82.33% vs. 79.33%) while reducing both false positives and false negatives. More importantly, Decision Trees are highly interpretable. They recursively partition data to create visual flowcharts that perfectly mimic the step-by-step triage protocols that clinical staff already use.
+
+- **Conclusion**: For direct clinical deployment on the hospital floor, the Decision Tree is the superior approach due to its higher accuracy and visual interpretability. However, because both models exhibited recall rates below 50%, neither should be deployed as a standalone diagnostic tool. They are best utilized as supplementary triage aids alongside human clinical judgment and additional biological screening.
+
+
+<!-- \newpage -->
+
+# Reflection and Policy Implications
+
+## Summary of Key Findings
+The comprehensive statistical and predictive analysis of the patient dataset yielded several critical insights regarding patient risk profiles:
+
+1. **Age is the Biggest Threat, but Gender Doesn't Matter:** A patient's biological sex played no significant role in their overall health score. However, getting older is the single biggest red flag. As patients age, their chances of falling into the high-risk category increase dramatically, making age the most important demographic to watch during triage.
+
+2. **Light Exercise is the Best Medicine:** A patient's lifestyle is highly predictive of their weight and overall risk. The data clearly shows that patients do not need to be athletes to see massive health improvements. Simply moving a patient from a "sedentary" (sitting mostly all day) lifestyle to a "low" or "moderate" level of physical activity drastically lowers their risk profile. Interestingly, once we accounted for exercise and age, a patient's diet quality did not significantly change their risk level.
+
+3. **Predictive Modeling Capabilities and Limits:** Both classical statistical models (Logistic Regression) and machine learning algorithms (Decision Trees) successfully identified high-risk patients with roughly 80% to 82% accuracy. However, both models exhibited a significant blind spot, missing approximately half of the actual high-risk patients (high false-negative rate). Therefore, while these models are excellent at identifying the causes of risk, they are not yet safe to use as standalone diagnostic tools without human supervision.
+
+
+## Limitations of the Study
+While the statistical and predictive models provided robust insights, several limitations must be acknowledged when interpreting these results for clinical application:
+
+1. **Simulated Dataset Constraints:** The dataset utilized for this analysis was simulated. Consequently, the initial mathematical relationships between the variables were inherently deterministic, lacking the complex biological variance seen in real-world clinical environments.
+
+2. **Class Imbalance and Recall**: The dataset featured an imbalanced target variable (224 low-risk patients vs. 76 high-risk patients). As a result, both the Logistic Regression and Decision Tree models exhibited high false-negative rates, struggling to achieve a recall score above 50%. This limits the models' utility as standalone diagnostic tools without further threshold tuning or additional data collection.
+
+## Actionable Insights for Hospital Management
+Based on these empirical findings, the following strategic policies are recommended for hospital administration:
+
+### Recommendation 1: Fund Low-Barrier, "Moderate" Physical Activity Initiatives
+Because the data clearly demonstrates that the clinical benefits of exercise plateau after a certain point, the hospital should not allocate resources toward intense, high-barrier fitness interventions (which have lower patient compliance). Instead, preventative care funding should be immediately directed toward low-barrier initiatives—such as prescribing daily walking routines, funding community physical therapy, or offering gentle senior movement classes. Moving the highest-risk demographic (older, sedentary patients) into the "Moderate" activity bracket will yield the highest return on investment for reducing overall hospital risk and secondary weight-related complications.
+
+### Recommendation 2: Deploy AI Decision Trees as a "First-Pass" Triage Aid, Not a Replacement
+Hospital IT leadership should integrate the Machine Learning Decision Tree into the Electronic Health Record (EHR) system to serve as an automated, first-pass triage aid. When a patient is admitted, the system can automatically flag them if their Age and Physical Activity profile matches the high-risk pathways identified by the algorithm. However, because the model currently produces a high rate of false negatives, clinical policy must mandate that this AI tool is only used to escalate care, never to discharge a patient. Doctors must continue to rely on traditional biological screenings (e.g., blood panels, family history) to catch the high-risk patients that the algorithm misses.
+
+
+# References
+
+- Milborrow, S. (2024). rpart.plot: Plot 'rpart' Models: An Enhanced Version of 'plot.rpart'. R package version 3.1.2. https://CRAN.R-project.org/package=rpart.plot
+- R Core Team. (2026). R: A language and environment for statistical computing. R Foundation for Statistical Computing, Vienna, Austria. https://www.R-project.org/
+- Robin, X., Turck, N., Hainard, A., Tiberti, N., Lisacek, F., Sanchez, J. C., & Müller, M. (2011). pROC: an open-source package for R and S+ to analyze and compare ROC curves. BMC Bioinformatics, 12, 77. https://doi.org/10.1186/1471-2105-12-77
+- Therneau, T., & Atkinson, B. (2023). rpart: Recursive Partitioning and Regression Trees. R package version 4.1.21. https://CRAN.R-project.org/package=rpart
+- Wickham, H., Averick, M., Bryan, J., Chang, W., McGowan, L. D., François, R., ... & Yutani, H. (2019). Welcome to the tidyverse. Journal of Open Source Software, 4(43), 1686. https://doi.org/10.21105/joss.01686
+
+# Appendix
+## Data and Code Availability
+In the interest of scientific transparency and computational reproducibility, the complete source code utilized for data cleaning, exploratory data analysis, classical statistical modeling, and machine learning classification has been made publicly available. All R scripts and data wrangling pipelines are hosted in a dedicated repository, which can be accessed at: github.com/nyarderr/stats_project.
+
+
+

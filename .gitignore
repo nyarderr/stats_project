@@ -1,0 +1,10 @@
+# RStudio and Workspace Files
+.Rproj.user/
+.Rhistory
+.RData
+.Ruserdata
+
+
+# OS Generated Files
+.DS_Store
+Thumbs.db

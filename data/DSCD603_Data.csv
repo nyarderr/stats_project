@@ -1,0 +1,301 @@
+PatientID,Age,Gender,MaritalStatus,SES,Smoking,Alcohol,PhysicalActivity,Stress,SleepHours,BMI,SBP,DBP,Cholesterol,Glucose,ChronicDisease,MedicationAdherence,LengthStay,HealthScore,Readmission,HighRisk,Severity,ExerciseFreq,DietQuality,HealthAwareness
+1,60,Female,Married,Low,No,Yes,Low,6,6.4,23.8,165,93,174,91,No,8,7,56,Yes,Yes,Moderate,5–6 times/week,Excellent,High
+2,24,Female,Married,Middle,No,No,Sedentary,4,6.3,20.4,117,103,194,88,No,5,4,83.5,No,No,Severe,3–4 times/week,Poor,Very High
+3,69,Female,Married,High,No,No,Low,Low,5.6,24.5,179,119,170,104,No,7,4,72.1,No,No,Mild,5–6 times/week,Very Poor,High
+4,67,Male,Single,Very Low,No,Yes,Moderate,Low,6.4,28.8,142,115,203,82,No,7,5,72.7,No,No,Critical,3–4 times/week,Excellent,Very Low
+5,58,Male,Married,Low,Yes,Yes,Sedentary,Moderate,6.1,37.2,187,91,191,106,Yes,5,6,62.6,Yes,No,Moderate,5–6 times/week,Excellent,Low
+6,53,Female,Married,Middle,Yes,Yes,Sedentary,Very High,4.4,28.5,168,91,237,88,No,3,5,51.7,No,Yes,Moderate,3–4 times/week,Excellent,Very High
+7,54,Male,Single,Low,No,No,High,2,7.5,29.5,147,103,202,76,No,7,6,68.8,No,No,Mild,1–2 times/week,Excellent,Very Low
+8,70,Female,Single,Middle,Yes,Yes,Moderate,Low,5.6,27,136,103,145,97,Yes,8,9,65.1,Yes,No,Severe,3–4 times/week,Very Poor,Moderate
+9,47,Female,Married,Middle,No,Yes,Low,4,7.2,24.3,143,101,144,94,Yes,6,6,60.3,Yes,No,Severe,5–6 times/week,Very Poor,Very High
+10,61,Male,Married,Middle,Yes,No,Moderate,Moderate,7.1,30.5,160,94,186,159,No,5,6,50.2,No,Yes,Critical,3–4 times/week,Good,Moderate
+11,77,Male,Married,Low,Yes,No,Sedentary,Low,6.7,23.5,191,102,215,102,Yes,3,3,61.7,No,No,Mild,Daily,Good,Moderate
+12,44,Male,Married,Low,No,Yes,Moderate,Low,7.1,24.8,121,90,171,89,No,7,6,75.7,Yes,No,Critical,5–6 times/week,Very Poor,Moderate
+13,53,Male,Single,High,No,No,High,2,8,21.1,148,75,182,124,No,6,6,66.7,Yes,No,Moderate,5–6 times/week,Poor,Very Low
+14,66,Female,Single,Middle,No,Yes,Sedentary,2,6.1,26.3,148,99,195,108,No,4,5,57.7,No,Yes,Mild,5–6 times/week,Excellent,Very High
+15,46,Female,Married,Low,No,Yes,Sedentary,2,7.6,22.4,155,83,235,115,No,6,3,72.8,No,No,Mild,1–2 times/week,Good,Low
+16,63,Female,Single,High,No,Yes,Moderate,Moderate,7.3,21,149,101,151,91,Yes,5,5,59,Yes,Yes,Critical,Daily,Very Poor,Moderate
+17,48,Male,Married,Very Low,No,No,Sedentary,4,6.2,17.8,167,89,159,113,No,5,8,69.6,Yes,No,Severe,1–2 times/week,Excellent,Low
+18,48,Male,Single,Low,No,No,Sedentary,High,5.4,28,141,99,215,105,Yes,7,5,66.2,No,No,Mild,Never,Poor,Low
+19,48,Male,Married,High,No,No,Sedentary,6,5,22.9,162,97,163,98,Yes,4,5,64.9,No,No,Moderate,3–4 times/week,Poor,Low
+20,50,Male,Married,High,No,No,Sedentary,2,6.3,21.9,142,88,209,74,No,8,5,77,Yes,No,Critical,Daily,Very Poor,Low
+21,55,Male,Single,High,No,Yes,Low,Low,6.4,25.7,171,90,138,60,Yes,7,6,72.7,No,No,Mild,3–4 times/week,Very Poor,Very High
+22,73,Male,Married,Middle,No,No,Low,Moderate,7.9,26,136,112,214,89,Yes,7,9,56.1,Yes,Yes,Mild,1–2 times/week,Excellent,Very High
+23,45,Female,Married,High,No,No,Moderate,6,5.5,22.4,137,91,184,74,Yes,7,9,62.4,Yes,No,Moderate,5–6 times/week,Poor,Moderate
+24,53,Male,Married,Very Low,No,No,Moderate,2,7,24.4,166,89,153,81,No,10,3,66.9,No,No,Critical,5–6 times/week,Excellent,Low
+25,38,Female,Married,High,No,No,Low,4,6.3,25,168,86,154,97,No,7,6,69.5,Yes,No,Critical,3–4 times/week,Good,High
+26,60,Female,Single,Low,No,No,Moderate,Low,5.8,20.3,170,98,147,95,Yes,9,4,70.1,No,No,Severe,Never,Poor,Very Low
+27,42,Male,Single,High,No,No,Moderate,Moderate,7.2,23.4,155,87,171,90,No,4,6,69.7,No,No,Critical,1–2 times/week,Poor,Very High
+28,49,Female,Married,Low,No,No,Moderate,4,7.4,22.8,144,94,174,56,No,8,8,73,No,No,Severe,Daily,Good,Moderate
+29,65,Male,Single,High,Yes,Yes,Moderate,6,5.6,23.4,176,125,148,102,No,7,6,52,Yes,Yes,Mild,5–6 times/week,Average,Very Low
+30,48,Female,Married,Middle,Yes,Yes,High,6,6.7,17.6,147,108,175,96,No,5,5,67.4,No,No,Mild,1–2 times/week,Average,High
+31,64,Male,Married,Low,No,Yes,Low,4,6.2,26,171,87,239,139,Yes,5,9,63.4,No,No,Critical,1–2 times/week,Average,Moderate
+32,50,Female,Married,High,Yes,No,Low,High,6.6,29.7,142,95,211,103,Yes,6,2,63.7,No,No,Critical,Daily,Excellent,Very Low
+33,52,Male,Married,Low,No,No,Low,Moderate,6.3,29.2,149,82,181,77,No,5,2,63.7,No,No,Critical,5–6 times/week,Good,High
+34,42,Male,Single,High,No,Yes,Low,Low,4.7,25.7,163,97,191,127,No,6,6,74.5,No,No,Critical,1–2 times/week,Very Poor,Moderate
+35,38,Male,Married,Low,Yes,Yes,Low,4,6.3,33.2,122,81,174,95,No,7,8,71.4,Yes,No,Moderate,5–6 times/week,Average,High
+36,74,Male,Single,Middle,No,Yes,High,4,5.5,21.6,147,103,198,107,Yes,5,5,55.9,No,Yes,Mild,Daily,Average,Very Low
+37,54,Male,Single,Very High,Yes,Yes,Low,Very High,5.2,26.2,143,109,175,81,Yes,5,5,48.5,No,Yes,Critical,5–6 times/week,Poor,Low
+38,67,Female,Married,Low,No,Yes,Moderate,Low,5.4,22.9,139,81,183,82,No,6,6,57.2,No,Yes,Severe,5–6 times/week,Good,Moderate
+39,35,Female,Married,Middle,No,Yes,High,2,5.1,26.1,131,91,203,79,Yes,6,5,80.5,Yes,No,Moderate,3–4 times/week,Good,High
+40,64,Male,Married,Very High,No,No,High,Low,5.4,16.1,148,95,179,108,Yes,6,9,61.5,Yes,No,Severe,Never,Average,Moderate
+41,70,Female,Married,Middle,Yes,Yes,Sedentary,Moderate,6.2,28.4,179,86,202,93,No,6,6,52,No,Yes,Moderate,3–4 times/week,Poor,Moderate
+42,75,Male,Married,Middle,No,No,Low,Low,7.4,28.5,175,102,181,80,No,4,1,56.8,No,Yes,Critical,1–2 times/week,Good,Very High
+43,49,Male,Married,Low,No,Yes,Moderate,2,6.3,21.8,151,100,206,91,Yes,7,6,72.7,No,No,Severe,1–2 times/week,Very Poor,Moderate
+44,47,Female,Single,High,No,No,Moderate,2,7.6,24.7,144,104,211,100,No,7,2,83.6,No,No,Mild,Never,Excellent,Low
+45,62,Female,Single,Middle,No,No,Moderate,Very Low,7.9,26.1,148,91,191,86,No,8,4,70.6,No,No,Mild,3–4 times/week,Good,Very Low
+46,38,Female,Single,Low,No,No,Low,High,4.5,26.3,121,89,144,66,No,4,6,70,No,No,Mild,Never,Poor,High
+47,52,Male,Married,High,No,No,Low,2,6.1,25.6,138,118,133,108,Yes,8,8,65.9,Yes,No,Critical,3–4 times/week,Average,Very High
+48,68,Female,Married,High,No,Yes,Low,6,5.3,25.9,176,102,201,99,Yes,5,8,69.7,Yes,No,Severe,Never,Very Poor,High
+49,44,Female,Married,Middle,Yes,No,Sedentary,Very High,5.7,28,151,99,157,80,Yes,5,5,46.2,Yes,Yes,Moderate,3–4 times/week,Good,Very High
+50,51,Female,Single,Middle,No,No,High,4,7.5,15.4,164,87,210,123,No,5,3,79.4,No,No,Critical,Never,Very Poor,Moderate
+51,42,Female,Single,High,No,No,Sedentary,4,5.3,24.1,151,101,181,107,No,6,4,67.2,Yes,No,Moderate,3–4 times/week,Excellent,High
+52,55,Male,Married,Low,Yes,No,High,6,6.4,18.1,132,88,169,96,No,5,5,54.3,No,Yes,Critical,5–6 times/week,Poor,Very High
+53,59,Male,Single,High,No,No,High,Very Low,7,27.1,144,82,155,101,Yes,7,6,88.9,No,No,Moderate,Daily,Good,High
+54,37,Male,Married,Middle,No,No,Moderate,Low,5.8,19.2,113,82,176,76,No,6,6,75.2,Yes,No,Critical,3–4 times/week,Excellent,Moderate
+55,61,Male,Single,Low,No,Yes,Low,4,6.1,21.1,163,92,173,103,No,7,2,60.1,No,No,Mild,3–4 times/week,Very Poor,Moderate
+56,42,Male,Married,Middle,No,No,Moderate,2,8.6,26.4,145,91,195,103,No,5,7,78.8,No,No,Critical,Daily,Excellent,Very High
+57,72,Male,Married,Very High,Yes,No,Sedentary,4,5.2,29.9,121,90,214,84,No,8,6,56.8,No,Yes,Mild,1–2 times/week,Poor,Very Low
+58,52,Female,Married,Middle,No,No,High,Moderate,4.5,19.8,135,121,183,106,No,6,4,62.4,No,No,Mild,3–4 times/week,Average,Moderate
+59,49,Female,Married,Low,Yes,Yes,Sedentary,4,5.3,23.3,164,89,195,90,No,5,5,66.2,Yes,No,Severe,Daily,Excellent,Low
+60,59,Male,Single,Middle,No,Yes,Moderate,4,5.4,25.5,155,78,197,91,No,6,4,59,No,Yes,Critical,5–6 times/week,Average,High
+61,22,Female,Single,High,No,Yes,High,High,5.2,18.8,127,83,202,85,No,4,5,67.2,No,No,Moderate,Never,Good,Very High
+62,52,Male,Single,Middle,Yes,No,Moderate,Low,5.8,25.7,145,89,139,107,Yes,8,8,71.3,No,No,Moderate,5–6 times/week,Very Poor,Very High
+63,75,Female,Married,High,No,No,High,4,7.1,26.6,167,100,164,105,Yes,9,7,66.4,Yes,No,Mild,3–4 times/week,Very Poor,High
+64,43,Male,Single,Low,Yes,Yes,High,4,6.5,20.4,155,91,221,73,No,4,4,68.7,No,No,Critical,1–2 times/week,Average,Very High
+65,53,Female,Married,Low,No,No,High,2,6.8,26.8,132,92,132,111,Yes,6,5,67.8,No,No,Mild,5–6 times/week,Excellent,Moderate
+66,47,Male,Single,High,No,No,Sedentary,High,3.8,25.2,140,93,188,98,Yes,5,6,55.8,No,Yes,Moderate,3–4 times/week,Good,Low
+67,33,Male,Married,Very High,No,No,Low,6,6.2,22,143,98,218,101,No,8,7,75.4,No,No,Severe,Never,Poor,Very High
+68,46,Female,Married,High,No,No,Low,High,4.5,22,176,85,201,89,No,5,4,65.3,No,No,Moderate,3–4 times/week,Poor,Very Low
+69,43,Male,Single,Very High,No,No,Moderate,2,7.1,21.9,142,94,193,119,No,4,5,82.7,Yes,No,Mild,5–6 times/week,Average,Low
+70,50,Female,Married,Middle,No,Yes,High,Low,5.8,21.3,146,92,233,101,No,6,4,77.1,No,No,Severe,Never,Good,Very Low
+71,34,Female,Married,Middle,Yes,No,Sedentary,Moderate,6,27.2,162,96,225,105,No,4,8,72.2,Yes,No,Severe,Never,Good,Very High
+72,48,Male,Single,High,No,No,Low,Moderate,5.7,25.5,151,74,154,87,Yes,6,7,61.1,No,No,Moderate,3–4 times/week,Poor,Moderate
+73,61,Male,Married,Middle,No,Yes,Sedentary,Moderate,5.8,30.7,165,90,228,124,Yes,6,6,60,No,No,Severe,Never,Average,High
+74,33,Male,Married,Low,Yes,No,Moderate,4,7.6,24,139,86,192,65,No,6,4,70.6,No,No,Severe,1–2 times/week,Excellent,Very High
+75,53,Female,Single,High,No,No,High,Low,6.3,23.4,150,93,174,125,Yes,5,6,69.8,No,No,Mild,3–4 times/week,Average,Very Low
+76,50,Male,Single,Middle,Yes,Yes,Sedentary,High,5.5,27.5,121,75,195,96,No,3,5,46.4,No,Yes,Moderate,1–2 times/week,Average,Very Low
+77,60,Female,Married,Very High,No,Yes,High,4,7.1,26.6,174,117,155,107,No,7,6,60.2,Yes,No,Severe,Never,Average,High
+78,45,Female,Single,Very High,Yes,No,Moderate,Moderate,6.4,28.7,138,106,240,79,No,6,4,65.7,No,No,Critical,3–4 times/week,Excellent,High
+79,47,Female,Married,High,No,No,High,2,7.3,29.6,136,88,211,87,No,6,5,70.8,No,No,Critical,Never,Very Poor,High
+80,73,Female,Single,High,No,Yes,Moderate,4,5.6,18.7,134,103,165,101,No,6,3,50.3,No,Yes,Mild,1–2 times/week,Excellent,Moderate
+81,34,Male,Married,Middle,Yes,Yes,Sedentary,Moderate,6.3,22.9,158,91,205,79,No,7,5,79.5,No,No,Critical,3–4 times/week,Very Poor,Very High
+82,77,Male,Single,Middle,Yes,No,Sedentary,High,6.1,22.9,140,96,201,96,Yes,4,6,51.4,No,Yes,Mild,5–6 times/week,Poor,Very Low
+83,55,Male,Single,High,No,No,High,6,7.1,19.6,166,93,202,92,No,5,8,58.2,No,Yes,Moderate,1–2 times/week,Poor,Low
+84,45,Male,Married,High,No,No,High,Low,7.3,19,151,107,186,100,No,5,4,69.4,No,No,Critical,5–6 times/week,Very Poor,Very Low
+85,54,Male,Single,Very Low,No,No,Moderate,Moderate,5.5,27.6,161,82,189,93,No,4,4,60.6,No,No,Severe,Daily,Very Poor,Very High
+86,49,Male,Married,Low,No,No,Low,Moderate,6.7,23.7,146,103,193,115,Yes,6,8,76.1,Yes,No,Severe,3–4 times/week,Excellent,Very Low
+87,62,Female,Single,High,No,No,High,2,6.8,22.9,176,109,186,128,No,7,3,67.3,No,No,Severe,5–6 times/week,Average,Very High
+88,51,Female,Married,Very Low,Yes,Yes,High,Low,5.6,22.9,124,90,188,89,No,7,3,69.7,No,No,Critical,5–6 times/week,Average,Low
+89,59,Male,Married,High,No,Yes,Low,Very Low,7.1,28.4,122,111,197,116,No,5,3,70.3,Yes,No,Severe,Never,Very Poor,Very Low
+90,59,Male,Single,Middle,No,No,High,2,5.8,21.6,158,104,166,98,Yes,6,2,81.4,No,No,Mild,3–4 times/week,Average,Moderate
+91,75,Female,Single,High,Yes,Yes,Moderate,High,3.8,21.2,153,92,215,92,Yes,4,7,48.6,Yes,Yes,Mild,1–2 times/week,Average,High
+92,57,Male,Married,High,No,Yes,Moderate,4,5.7,27.4,130,92,210,100,Yes,6,6,58.9,Yes,Yes,Severe,3–4 times/week,Poor,High
+93,29,Female,Single,Middle,No,Yes,High,Very Low,4.7,23.7,131,93,164,114,Yes,3,8,82.2,Yes,No,Critical,Never,Average,High
+94,58,Male,Married,Middle,No,Yes,Low,Very Low,7.2,20.8,158,100,193,106,No,8,7,65.3,No,No,Critical,Never,Average,Low
+95,40,Male,Married,Middle,Yes,Yes,Low,Moderate,4.7,24.3,156,88,181,121,No,6,5,69.4,No,No,Severe,3–4 times/week,Excellent,High
+96,63,Male,Married,Middle,No,No,Moderate,2,8.6,21.2,154,97,216,85,Yes,9,6,69.9,Yes,No,Mild,Daily,Very Poor,High
+97,70,Male,Married,High,No,Yes,High,Low,7,21.9,164,88,170,101,No,5,2,62.5,No,No,Severe,Daily,Poor,Very High
+98,51,Male,Single,High,Yes,No,High,4,5.8,26,147,89,238,110,No,5,8,56,Yes,Yes,Severe,3–4 times/week,Good,Low
+99,55,Male,Married,Low,No,No,Low,6,6.1,21.4,150,96,191,111,Yes,3,7,53.6,No,Yes,Mild,5–6 times/week,Very Poor,Moderate
+100,50,Female,Single,Low,No,No,High,Low,7.3,23.1,149,76,194,86,Yes,6,6,70.2,Yes,No,Mild,Never,Poor,Very Low
+101,72,Female,Single,Middle,No,Yes,Moderate,2,6.7,21.4,162,94,180,117,No,9,7,71.9,Yes,No,Critical,3–4 times/week,Average,Very Low
+102,53,Female,Married,Middle,No,No,Sedentary,Moderate,4.4,29,149,81,188,66,No,7,7,65.8,Yes,No,Mild,Daily,Good,Low
+103,46,Male,Single,Middle,No,No,Sedentary,High,5.5,27.3,135,103,163,90,Yes,1,5,59.1,No,Yes,Moderate,Daily,Good,Low
+104,42,Female,Single,Low,No,No,High,Very Low,5.6,23.3,122,88,189,126,No,7,3,78.4,No,No,Severe,5–6 times/week,Good,Moderate
+105,59,Male,Married,Low,No,Yes,Sedentary,Low,6.2,25.7,152,77,206,64,Yes,6,7,75.3,Yes,No,Mild,Never,Excellent,Very Low
+106,41,Female,Married,Very High,Yes,Yes,High,High,6.4,28,148,93,205,106,Yes,5,9,60.9,No,No,Critical,5–6 times/week,Excellent,Very High
+107,41,Male,Married,Low,Yes,No,Sedentary,Moderate,4.7,27.6,128,98,169,99,Yes,6,7,63.2,No,No,Moderate,Never,Good,Very High
+108,40,Female,Single,Middle,Yes,Yes,High,High,4.1,19,142,110,197,86,No,3,5,57.8,No,Yes,Moderate,1–2 times/week,Poor,High
+109,42,Male,Married,High,No,Yes,High,4,4.9,17.6,145,97,167,93,No,6,3,68.9,No,No,Mild,Daily,Good,Low
+110,51,Male,Single,High,No,No,Low,Moderate,7,30.7,165,84,181,99,Yes,7,6,67.2,No,No,Severe,Daily,Excellent,Moderate
+111,48,Female,Married,Very Low,Yes,No,High,4,7.1,23.3,131,84,205,90,Yes,6,9,73.3,Yes,No,Critical,Daily,Very Poor,Very Low
+112,74,Female,Single,High,Yes,No,Low,Moderate,6.1,25.5,165,103,206,87,No,4,7,64.3,Yes,No,Severe,5–6 times/week,Poor,Low
+113,53,Female,Single,Middle,No,No,Sedentary,4,6.4,25.3,147,86,198,102,No,8,4,64,No,No,Mild,Never,Average,Very Low
+114,65,Male,Married,High,Yes,Yes,Sedentary,8,5.9,24.9,170,100,190,84,Yes,5,13,43,Yes,Yes,Severe,Daily,Average,Very Low
+115,77,Female,Single,Very Low,No,No,High,Very Low,5.2,22,144,126,208,94,Yes,6,3,62.6,No,No,Mild,1–2 times/week,Average,Very Low
+116,46,Female,Single,Middle,No,Yes,High,Very Low,6.9,21.3,122,76,202,79,Yes,5,8,73.6,No,No,Moderate,1–2 times/week,Average,Moderate
+117,58,Female,Married,Middle,Yes,No,Low,4,6.8,24.8,166,89,152,77,Yes,6,10,65.2,Yes,No,Critical,1–2 times/week,Excellent,High
+118,43,Female,Married,Very High,No,No,Low,2,6,22.8,124,92,200,96,No,6,7,63.3,No,No,Mild,Never,Average,High
+119,41,Female,Single,Middle,No,No,Moderate,Low,5.5,25.9,139,86,201,89,No,8,4,78.7,No,No,Severe,3–4 times/week,Very Poor,High
+120,61,Male,Married,High,Yes,Yes,Sedentary,6,3.7,27.3,146,92,195,97,Yes,5,10,60.3,Yes,No,Severe,Daily,Excellent,Low
+121,28,Male,Single,High,No,No,Moderate,4,6.4,25.9,108,90,175,92,No,4,2,66.1,No,No,Moderate,1–2 times/week,Excellent,High
+122,54,Female,Married,Low,No,Yes,Moderate,Low,6,21.7,102,98,213,75,No,6,4,72.4,No,No,Critical,Daily,Very Poor,Very High
+123,63,Male,Married,Very High,No,No,Sedentary,6,6.6,23.7,131,99,191,90,Yes,6,8,58.8,Yes,Yes,Severe,Daily,Very Poor,Very Low
+124,47,Male,Single,Low,Yes,No,High,Moderate,4.1,26.9,158,102,241,98,No,4,5,71.1,Yes,No,Mild,3–4 times/week,Poor,Very Low
+125,46,Female,Single,Middle,No,No,Low,Moderate,5.8,26.9,125,78,175,99,No,5,3,67.6,No,No,Severe,5–6 times/week,Good,Moderate
+126,58,Female,Married,Low,No,No,Sedentary,Low,7,28.8,157,91,183,113,Yes,3,9,63.6,Yes,No,Mild,1–2 times/week,Excellent,Low
+127,50,Male,Married,Middle,No,Yes,Low,4,5.5,24.3,143,112,218,139,Yes,7,7,65.4,No,No,Mild,Daily,Average,Very High
+128,42,Male,Single,High,No,No,Moderate,6,7.9,18.7,142,82,214,44,No,6,8,64.9,Yes,No,Moderate,5–6 times/week,Good,High
+129,56,Male,Married,Low,No,Yes,Sedentary,High,5.9,29.6,139,96,226,100,No,3,5,68.2,No,No,Moderate,Daily,Very Poor,Moderate
+130,41,Male,Single,Middle,No,No,High,Moderate,6.5,15.9,131,89,218,99,No,6,1,74.3,No,No,Critical,3–4 times/week,Good,Low
+131,54,Female,Married,High,No,Yes,Moderate,Moderate,4.8,18.8,140,87,224,113,No,6,2,61.2,No,No,Moderate,5–6 times/week,Excellent,Low
+132,38,Male,Married,High,No,Yes,Moderate,Low,7.4,17.8,133,108,224,89,No,8,7,70.2,No,No,Mild,3–4 times/week,Poor,High
+133,56,Male,Single,Middle,No,No,Moderate,Moderate,5.4,24.6,144,94,196,64,Yes,7,6,63.1,Yes,No,Mild,Never,Poor,High
+134,54,Female,Single,Middle,No,Yes,Low,2,8.3,21.2,160,92,225,97,No,9,3,73.2,No,No,Severe,3–4 times/week,Poor,High
+135,61,Female,Single,Middle,Yes,No,Moderate,2,7.5,23.4,170,85,238,72,No,5,3,71.6,No,No,Severe,1–2 times/week,Very Poor,Moderate
+136,23,Female,Married,Very High,No,Yes,Moderate,6,4.3,24,111,76,192,92,Yes,6,6,67.5,No,No,Mild,3–4 times/week,Very Poor,Low
+137,31,Female,Married,Middle,No,No,Low,Low,6.7,24.1,129,96,189,111,Yes,7,5,80.7,No,No,Moderate,3–4 times/week,Average,Very High
+138,58,Female,Married,Low,No,Yes,Sedentary,6,6.6,28.9,157,102,162,103,Yes,6,6,53.4,No,Yes,Mild,5–6 times/week,Excellent,Moderate
+139,58,Female,Married,Very Low,No,Yes,Moderate,4,3.8,19.5,181,105,212,80,Yes,4,7,62.2,Yes,No,Severe,3–4 times/week,Poor,High
+140,51,Male,Single,Middle,No,Yes,High,2,7.6,21.1,172,100,160,72,No,4,2,75.7,No,No,Mild,1–2 times/week,Good,Moderate
+141,53,Male,Single,Low,Yes,Yes,Low,4,6.9,25.3,137,93,168,109,Yes,5,8,58,Yes,Yes,Mild,Daily,Very Poor,Very Low
+142,54,Female,Married,Very Low,No,No,High,Moderate,6.6,22.1,146,98,153,92,Yes,7,5,65.9,Yes,No,Mild,Daily,Good,Moderate
+143,42,Female,Single,Middle,No,Yes,High,2,8.3,19,134,101,127,102,No,8,4,84.6,No,No,Mild,5–6 times/week,Good,High
+144,74,Female,Single,Low,Yes,No,Sedentary,4,6.3,28,154,108,165,70,No,6,5,57.6,No,Yes,Critical,5–6 times/week,Average,Very High
+145,39,Male,Married,Very Low,No,No,Moderate,Low,4.8,21.4,123,98,175,92,Yes,5,4,79.9,Yes,No,Critical,Daily,Very Poor,Moderate
+146,52,Male,Married,Very Low,No,Yes,Moderate,Moderate,6.3,25.9,147,96,172,126,Yes,5,6,60.7,No,No,Moderate,Daily,Good,Moderate
+147,66,Male,Married,Very Low,No,Yes,High,4,4.8,21.5,156,91,206,105,Yes,8,10,72.5,Yes,No,Mild,3–4 times/week,Average,Very Low
+148,52,Male,Married,Middle,No,No,Low,4,9.2,18.9,163,99,138,96,No,7,3,63,No,No,Moderate,Never,Excellent,High
+149,64,Male,Married,Middle,No,No,Sedentary,4,7.3,25.7,154,109,169,98,Yes,5,7,58,No,Yes,Severe,3–4 times/week,Average,High
+150,75,Female,Single,Middle,Yes,No,Sedentary,Very High,3.9,23.3,143,83,219,92,No,6,6,28.7,No,Yes,Critical,3–4 times/week,Very Poor,Moderate
+151,50,Male,Married,Low,No,No,Low,4,4.8,21.3,158,78,216,66,Yes,4,8,65.2,No,No,Moderate,3–4 times/week,Average,Moderate
+152,45,Male,Married,Middle,Yes,No,High,Very High,6.3,24.6,165,81,208,104,Yes,4,11,47.5,Yes,Yes,Mild,5–6 times/week,Very Poor,Low
+153,35,Female,Single,High,No,Yes,High,2,6.7,21.4,119,80,212,78,No,7,3,75.2,No,No,Severe,1–2 times/week,Poor,High
+154,53,Male,Single,Middle,No,Yes,High,6,7.7,27.2,147,107,187,114,Yes,3,3,55.6,No,Yes,Severe,5–6 times/week,Average,Very Low
+155,56,Female,Married,Middle,No,Yes,Sedentary,4,7.2,30.2,141,93,175,68,Yes,7,12,73.9,Yes,No,Mild,1–2 times/week,Excellent,High
+156,45,Female,Single,High,No,Yes,Sedentary,4,7.6,28.4,168,94,188,113,No,5,4,58.3,No,Yes,Mild,5–6 times/week,Very Poor,Low
+157,76,Male,Married,Middle,No,No,High,2,7.5,24.5,141,112,167,93,Yes,6,7,57.9,No,Yes,Mild,3–4 times/week,Good,Low
+158,43,Female,Married,High,Yes,Yes,Low,4,8.2,28.3,137,82,186,85,Yes,4,8,67.3,Yes,No,Moderate,3–4 times/week,Very Poor,High
+159,57,Female,Married,Middle,No,No,High,Low,6,21.5,129,100,234,92,Yes,7,5,78.1,Yes,No,Critical,3–4 times/week,Very Poor,Very High
+160,58,Male,Married,Middle,No,No,Low,6,5.6,23.9,164,89,179,103,Yes,5,7,62.1,No,No,Critical,5–6 times/week,Excellent,Moderate
+161,58,Male,Married,Middle,Yes,Yes,Sedentary,High,6,26.8,155,101,196,126,Yes,6,6,39.9,No,Yes,Critical,1–2 times/week,Very Poor,Very High
+162,55,Male,Married,Low,Yes,No,Low,Moderate,6.9,24,133,97,186,116,No,4,1,68.3,No,No,Critical,5–6 times/week,Average,High
+163,68,Female,Single,Low,No,No,High,2,7.7,19,150,112,224,63,No,6,5,62.2,Yes,No,Severe,Daily,Poor,Very High
+164,50,Female,Single,Very High,No,No,Low,6,6,24,121,82,157,58,No,6,6,61.6,No,No,Critical,Never,Poor,Low
+165,36,Male,Single,Middle,Yes,Yes,Low,6,5.6,27.2,132,77,160,109,Yes,5,6,68.4,Yes,No,Moderate,3–4 times/week,Excellent,Moderate
+166,54,Male,Married,Middle,No,No,Moderate,4,5,24.5,134,90,207,90,Yes,9,6,71.9,No,No,Critical,5–6 times/week,Poor,Moderate
+167,79,Female,Married,Low,No,Yes,Moderate,4,6.6,25.2,168,92,178,75,Yes,4,2,58.9,No,Yes,Severe,Daily,Average,Moderate
+168,64,Male,Single,High,No,No,Low,Moderate,5.7,22.4,147,106,217,118,No,5,5,67.5,No,No,Critical,3–4 times/week,Poor,Very Low
+169,60,Male,Married,High,No,No,Moderate,Low,7.3,19.9,143,102,158,87,Yes,8,8,69.6,Yes,No,Severe,1–2 times/week,Good,Moderate
+170,49,Female,Single,Low,No,Yes,Sedentary,Moderate,5.8,23.8,127,79,230,101,Yes,7,11,70.3,Yes,No,Mild,Never,Very Poor,Moderate
+171,47,Female,Single,Middle,Yes,No,High,Low,6.9,23.1,138,122,185,104,Yes,5,4,72,No,No,Mild,1–2 times/week,Average,Moderate
+172,43,Female,Married,Middle,No,No,Low,Moderate,5.2,20.9,123,87,190,93,No,4,7,65.5,No,No,Moderate,5–6 times/week,Good,High
+173,64,Female,Married,Middle,No,No,Moderate,6,6.3,20.3,152,91,150,118,Yes,5,9,52.4,No,Yes,Mild,Never,Good,High
+174,79,Male,Single,Middle,No,No,High,Low,7.7,22.4,141,104,261,97,Yes,7,7,63,Yes,No,Critical,5–6 times/week,Average,Very High
+175,56,Female,Married,High,No,No,High,2,5.9,25.7,166,73,198,92,Yes,5,4,69.5,Yes,No,Severe,Never,Excellent,Very Low
+176,58,Male,Single,Middle,Yes,Yes,Low,Moderate,4.8,26.8,160,116,198,88,Yes,7,6,56.7,No,Yes,Severe,5–6 times/week,Average,Low
+177,63,Male,Married,Middle,No,Yes,Sedentary,Low,5.7,24.9,136,92,184,59,No,8,7,60.7,Yes,No,Severe,3–4 times/week,Excellent,Low
+178,60,Female,Single,Low,Yes,No,High,4,7.8,25.9,162,91,150,77,Yes,7,6,57,No,Yes,Moderate,Never,Very Poor,Very High
+179,49,Male,Married,Middle,No,No,Moderate,4,6.8,20.8,156,84,174,112,Yes,7,9,75.9,Yes,No,Moderate,3–4 times/week,Poor,Very High
+180,57,Female,Married,High,Yes,No,High,4,6.9,22,168,79,205,87,Yes,6,5,66.5,No,No,Severe,Never,Good,Moderate
+181,44,Male,Single,Very Low,No,Yes,High,4,6.9,18.9,141,82,202,84,Yes,6,11,64.5,Yes,No,Mild,5–6 times/week,Good,Low
+182,64,Male,Single,Middle,No,No,Sedentary,Moderate,6.7,23.5,139,94,221,104,Yes,4,6,61.1,No,No,Critical,Never,Poor,Very High
+183,40,Male,Married,Middle,Yes,No,High,Moderate,6.4,17.3,135,101,223,121,No,9,5,62.2,No,No,Critical,3–4 times/week,Good,Very High
+184,39,Female,Single,Middle,No,Yes,Low,2,5.3,24.8,156,88,232,104,Yes,5,7,69.1,No,No,Moderate,1–2 times/week,Very Poor,Moderate
+185,76,Male,Single,Middle,Yes,No,Low,Low,3.3,25.2,164,96,195,77,Yes,4,6,54.3,No,Yes,Severe,1–2 times/week,Good,Very Low
+186,52,Male,Single,High,Yes,No,Sedentary,Moderate,5.9,28.1,159,103,269,105,Yes,4,6,70.6,No,No,Mild,3–4 times/week,Poor,Very High
+187,61,Female,Married,Low,No,No,Low,Low,6.2,23.6,164,103,220,86,No,3,3,67,No,No,Mild,Daily,Average,Very High
+188,53,Female,Married,Low,Yes,No,High,4,7.9,24.8,145,91,230,109,Yes,8,5,74.3,Yes,No,Moderate,Daily,Very Poor,Very Low
+189,38,Female,Single,Middle,No,No,High,4,7.9,18.3,135,75,186,103,No,6,5,70.2,No,No,Mild,1–2 times/week,Very Poor,Moderate
+190,34,Male,Married,Middle,Yes,No,Moderate,Moderate,4.7,29.8,106,105,137,90,No,5,7,82.7,No,No,Critical,5–6 times/week,Excellent,Very High
+191,55,Male,Married,Middle,No,No,Low,6,6.6,24.4,181,130,207,103,Yes,5,8,54,Yes,Yes,Critical,5–6 times/week,Very Poor,High
+192,58,Male,Married,High,No,No,Sedentary,Moderate,6.5,29,135,99,199,113,No,7,6,62.4,Yes,No,Moderate,Daily,Average,Very High
+193,69,Male,Married,Low,No,No,Sedentary,4,6.7,26.3,141,103,201,101,No,5,7,60.9,No,No,Moderate,Daily,Good,Moderate
+194,44,Female,Married,Very Low,Yes,No,High,Moderate,5.6,26.2,154,94,214,87,No,6,5,69.6,No,No,Severe,3–4 times/week,Excellent,Very Low
+195,65,Male,Married,Low,No,Yes,Moderate,High,5.3,18.6,155,99,203,84,Yes,2,7,40.5,Yes,Yes,Severe,5–6 times/week,Very Poor,Very High
+196,60,Female,Single,Low,No,Yes,Sedentary,Moderate,5.8,24.1,136,112,189,72,No,6,3,68.7,No,No,Severe,Daily,Good,High
+197,65,Male,Married,High,No,Yes,Sedentary,Low,7.9,24.9,140,87,204,114,No,6,8,62.2,No,No,Moderate,Daily,Excellent,Very High
+198,63,Female,Single,Very High,Yes,No,Low,High,5.3,20.4,165,86,192,117,No,5,4,55.1,No,Yes,Moderate,Daily,Excellent,Moderate
+199,74,Male,Single,Middle,No,No,Low,2,6.5,26.1,165,108,168,96,Yes,6,5,61.1,Yes,No,Moderate,1–2 times/week,Very Poor,Very High
+200,75,Female,Married,High,Yes,Yes,Sedentary,4,5.7,25.4,163,82,190,62,Yes,6,7,56.7,Yes,Yes,Moderate,Never,Good,High
+201,50,Female,Married,Low,No,No,Low,6,5.8,23.3,166,92,171,76,No,4,4,64.7,No,No,Mild,1–2 times/week,Good,Very High
+202,62,Female,Married,Low,No,No,High,Low,6.5,22.8,129,101,179,118,Yes,8,5,64.8,Yes,No,Severe,3–4 times/week,Average,Very High
+203,41,Male,Single,High,No,No,Sedentary,Moderate,5,23.8,135,96,151,77,No,6,6,71.7,No,No,Mild,Never,Poor,Very Low
+204,50,Female,Married,Very High,Yes,Yes,High,Moderate,4.9,25,150,100,206,80,No,6,5,72.5,Yes,No,Severe,1–2 times/week,Excellent,Very Low
+205,44,Male,Married,Middle,No,Yes,Low,6,4.7,25,136,90,179,69,No,6,7,60,No,No,Severe,5–6 times/week,Poor,Very Low
+206,44,Male,Married,Low,No,No,Moderate,4,5.6,20.4,139,108,176,98,No,6,7,74.6,Yes,No,Mild,Daily,Excellent,Very Low
+207,34,Male,Married,Low,No,Yes,Sedentary,Low,7.9,22.6,127,80,146,75,Yes,8,8,80.3,Yes,No,Critical,Daily,Good,Very High
+208,53,Male,Single,High,No,No,Moderate,4,8.4,27.9,180,91,232,75,No,6,6,60.8,No,No,Mild,5–6 times/week,Good,Very Low
+209,52,Male,Single,Low,No,Yes,High,4,6.7,25,188,118,149,109,Yes,4,4,72.8,Yes,No,Severe,5–6 times/week,Excellent,Very Low
+210,58,Male,Married,High,No,No,High,Moderate,7.9,26.1,179,95,195,81,No,3,5,63.1,No,No,Mild,Daily,Good,Moderate
+211,33,Female,Married,High,No,No,Sedentary,8,6.3,23.9,116,98,206,107,No,4,8,52.9,Yes,Yes,Mild,1–2 times/week,Good,Moderate
+212,39,Male,Married,Very Low,No,Yes,High,2,4.6,25.2,142,88,220,107,No,9,5,85.6,No,No,Moderate,5–6 times/week,Poor,Very Low
+213,53,Male,Married,High,No,Yes,Sedentary,4,5.8,24.1,139,96,176,86,No,5,3,72.9,No,No,Critical,1–2 times/week,Very Poor,Very Low
+214,67,Female,Single,Middle,No,Yes,Moderate,4,6.5,26.1,169,105,212,77,Yes,7,4,54.9,No,Yes,Moderate,3–4 times/week,Excellent,Low
+215,48,Female,Married,Very High,Yes,No,Moderate,4,5.2,27.3,150,86,184,101,Yes,4,6,71.9,No,No,Critical,Never,Excellent,Very High
+216,44,Male,Married,Middle,No,No,Sedentary,Moderate,4.7,24.9,133,91,165,123,No,4,5,58,No,Yes,Mild,5–6 times/week,Very Poor,Low
+217,45,Male,Married,Very High,Yes,Yes,Moderate,Very High,5.5,25.1,141,94,192,93,Yes,3,7,51,No,Yes,Mild,3–4 times/week,Good,Very High
+218,53,Male,Single,Very High,No,No,High,Low,7.3,23.5,138,82,188,99,No,7,8,64.3,No,No,Mild,Never,Very Poor,Very Low
+219,83,Female,Married,High,Yes,No,High,2,5.4,21.3,177,99,231,89,Yes,6,6,60.8,No,No,Moderate,1–2 times/week,Average,Very Low
+220,49,Male,Single,Low,No,No,Moderate,2,6.8,22.4,143,99,197,85,No,7,3,78.9,No,No,Moderate,3–4 times/week,Very Poor,High
+221,42,Male,Married,Low,Yes,Yes,High,4,6.6,24.2,144,80,169,89,Yes,6,6,68.8,No,No,Critical,Never,Excellent,Moderate
+222,66,Female,Single,Low,No,No,Sedentary,Moderate,5.5,25.8,177,105,186,99,Yes,6,9,54,Yes,Yes,Moderate,Daily,Very Poor,Very Low
+223,39,Female,Single,High,No,No,High,4,4.6,24.9,149,87,142,125,Yes,6,9,71.8,Yes,No,Severe,Daily,Good,Moderate
+224,49,Female,Married,High,Yes,No,Moderate,Low,7.2,19.8,150,90,195,88,No,9,2,66.9,No,No,Severe,Daily,Average,Moderate
+225,78,Female,Single,Middle,No,Yes,Sedentary,Moderate,6.8,26.8,139,103,211,62,Yes,6,5,51.8,Yes,Yes,Mild,5–6 times/week,Very Poor,Moderate
+226,50,Female,Single,Middle,Yes,No,Low,6,6.2,27.6,119,103,224,93,No,3,4,53.1,No,Yes,Moderate,1–2 times/week,Poor,Low
+227,53,Female,Married,Low,No,No,Low,4,4.7,18,134,88,201,94,No,3,3,73.1,No,No,Moderate,1–2 times/week,Excellent,Low
+228,40,Male,Married,Middle,Yes,No,High,High,6.1,25.6,147,98,162,105,No,5,3,61.5,No,No,Moderate,1–2 times/week,Excellent,Moderate
+229,27,Female,Married,Middle,No,No,High,Low,7,20.5,142,80,188,118,No,5,2,74.4,No,No,Severe,1–2 times/week,Poor,Low
+230,32,Male,Married,Middle,No,Yes,Low,Moderate,7.1,20.8,125,110,160,94,No,7,8,68.6,No,No,Severe,3–4 times/week,Average,Moderate
+231,66,Male,Single,High,Yes,No,Low,4,6.6,27.4,172,95,234,92,Yes,4,8,66,Yes,No,Severe,1–2 times/week,Average,Very High
+232,68,Male,Single,Low,No,No,Sedentary,6,5.8,23.5,129,92,141,68,Yes,6,5,61.2,Yes,No,Mild,Daily,Good,Very High
+233,48,Male,Single,Middle,No,No,Moderate,Moderate,4.9,25.7,141,92,213,85,No,8,5,72.7,No,No,Mild,3–4 times/week,Very Poor,High
+234,61,Female,Married,Low,No,Yes,Moderate,Low,7,23.7,143,88,160,106,Yes,7,8,66.3,Yes,No,Severe,5–6 times/week,Average,High
+235,47,Male,Married,High,No,Yes,High,Low,6.1,20.7,140,92,184,81,No,7,4,70.7,No,No,Moderate,Never,Poor,Very High
+236,40,Female,Married,Low,No,No,Moderate,4,6.1,23.5,134,77,198,122,No,7,5,74.5,No,No,Critical,Never,Average,High
+237,40,Male,Married,Middle,No,No,Low,4,6.5,23.5,152,96,195,96,No,4,8,64.7,No,No,Severe,3–4 times/week,Average,Moderate
+238,52,Male,Single,Middle,No,Yes,Low,4,7.8,27,105,86,174,93,Yes,7,8,73.2,Yes,No,Critical,1–2 times/week,Poor,Very Low
+239,43,Male,Married,Very Low,Yes,No,High,2,5.9,28.7,129,102,229,101,Yes,8,5,67.6,Yes,No,Moderate,5–6 times/week,Excellent,High
+240,62,Male,Single,Middle,Yes,No,Low,2,6.3,24.9,154,92,215,82,No,7,6,70.3,Yes,No,Severe,1–2 times/week,Very Poor,Very Low
+241,45,Female,Single,Middle,No,Yes,Sedentary,4,6.6,27,136,110,168,81,No,5,2,75.1,No,No,Critical,1–2 times/week,Poor,Very High
+242,43,Male,Single,Middle,No,Yes,Moderate,6,6.2,25,134,73,253,104,No,1,7,58.5,No,Yes,Critical,5–6 times/week,Poor,Very Low
+243,33,Female,Married,Low,No,No,Moderate,Low,7.3,25.4,135,92,240,80,No,6,4,77.1,No,No,Moderate,Never,Average,Very High
+244,49,Female,Married,Very Low,No,Yes,Low,2,5.6,24.4,144,106,225,82,Yes,7,3,82.1,No,No,Moderate,1–2 times/week,Excellent,High
+245,55,Female,Married,Middle,No,No,Low,6,6.8,24.1,159,113,192,104,No,5,7,42.8,No,Yes,Mild,Never,Average,Low
+246,63,Female,Married,Low,Yes,Yes,Moderate,6,5.8,21,156,89,201,93,Yes,7,8,54.8,Yes,Yes,Moderate,Never,Good,High
+247,22,Male,Married,Very High,No,No,Moderate,4,6.6,19.1,146,91,145,92,No,8,3,81.9,No,No,Mild,Daily,Very Poor,High
+248,67,Female,Married,Middle,No,No,High,4,5.6,16.7,152,87,235,107,Yes,9,8,67.9,Yes,No,Mild,Never,Excellent,Very Low
+249,49,Male,Married,Middle,No,Yes,Sedentary,4,5.3,28.9,133,103,156,88,No,7,1,68.9,No,No,Mild,5–6 times/week,Excellent,Very Low
+250,79,Male,Single,High,No,No,High,Low,6.7,17.9,162,113,232,107,Yes,8,7,60.5,Yes,No,Severe,5–6 times/week,Excellent,Very High
+251,56,Male,Married,High,No,Yes,Sedentary,4,6.5,28.3,173,98,241,86,No,7,4,54.3,No,Yes,Moderate,Never,Good,Very Low
+252,50,Female,Married,Middle,No,No,Sedentary,Moderate,4.3,28.5,149,94,183,114,No,3,4,65.4,No,No,Moderate,Daily,Poor,Moderate
+253,89,Male,Married,Middle,No,Yes,Sedentary,4,6.5,20.4,151,110,184,54,Yes,6,3,53,Yes,Yes,Severe,Daily,Very Poor,High
+254,47,Male,Married,Middle,No,No,High,6,5.9,23.2,129,80,219,68,No,4,5,66.2,No,No,Mild,3–4 times/week,Poor,Moderate
+255,33,Male,Married,High,No,Yes,Low,Low,6,21.9,145,90,198,99,No,7,9,69.3,Yes,No,Moderate,1–2 times/week,Very Poor,Very High
+256,32,Female,Married,High,No,No,Moderate,Very Low,8.5,19.6,124,91,224,92,No,2,6,80.5,Yes,No,Critical,Daily,Very Poor,Moderate
+257,54,Male,Single,Low,No,No,High,4,6.2,20.4,139,100,204,108,No,7,5,66.8,No,No,Severe,Never,Poor,Moderate
+258,36,Female,Married,Very High,Yes,No,Moderate,Low,6.7,27.5,146,92,201,108,Yes,6,6,71.8,No,No,Moderate,Daily,Very Poor,Very High
+259,43,Male,Married,Middle,No,No,Sedentary,6,5.4,28,151,94,190,87,Yes,3,8,66.4,Yes,No,Severe,Daily,Good,High
+260,61,Female,Single,Middle,Yes,Yes,Low,4,4.7,24.7,132,95,216,75,No,6,7,68,Yes,No,Severe,Daily,Excellent,High
+261,55,Female,Married,Very Low,No,No,Low,4,5.9,19.3,147,116,178,89,No,8,6,67.8,No,No,Critical,1–2 times/week,Average,Very High
+262,37,Female,Married,High,No,Yes,Low,6,6.1,22.9,130,90,193,85,Yes,6,8,67.6,Yes,No,Mild,Never,Very Poor,Low
+263,57,Male,Single,Middle,Yes,No,Sedentary,High,4.5,28.7,193,95,182,82,No,5,5,46.6,No,Yes,Critical,Never,Good,Moderate
+264,38,Male,Married,Middle,No,Yes,High,Very Low,5.9,22.4,131,90,194,101,No,5,5,85.3,No,No,Mild,3–4 times/week,Poor,Low
+265,60,Male,Married,High,No,Yes,High,2,6.3,23,155,98,167,83,No,7,1,64.5,No,No,Critical,1–2 times/week,Excellent,Very Low
+266,74,Female,Married,High,No,No,Sedentary,High,6.1,24,133,94,184,89,Yes,6,10,48.3,No,Yes,Critical,Never,Poor,High
+267,62,Female,Married,Middle,No,No,Low,Low,7.3,31,175,102,194,109,No,3,4,64.4,No,No,Severe,Never,Average,Low
+268,57,Male,Single,Low,Yes,No,Moderate,High,6.3,21.2,156,100,165,87,No,6,7,54,No,Yes,Severe,Daily,Very Poor,High
+269,58,Female,Single,Very Low,Yes,No,High,6,8.4,23.4,177,102,193,102,Yes,5,6,53.7,No,Yes,Severe,3–4 times/week,Excellent,Moderate
+270,54,Female,Married,Middle,Yes,No,Moderate,6,6.5,24.7,133,103,184,121,Yes,4,7,59.9,No,Yes,Moderate,Daily,Good,Very Low
+271,45,Male,Married,Middle,Yes,Yes,Low,2,6.5,28.1,117,100,202,96,No,7,6,77.4,No,No,Mild,1–2 times/week,Average,Very High
+272,44,Female,Single,Very Low,No,Yes,Moderate,Very Low,8.1,23.8,132,103,244,114,No,6,1,76.3,No,No,Severe,Daily,Average,Low
+273,33,Male,Married,High,No,Yes,Low,Moderate,5.7,24.7,157,85,138,90,No,6,1,66.2,No,No,Moderate,5–6 times/week,Average,Low
+274,49,Male,Married,Middle,No,Yes,Moderate,4,6.2,24.7,142,82,177,75,Yes,7,9,73.7,Yes,No,Critical,Never,Excellent,Very Low
+275,64,Female,Married,Low,Yes,No,Sedentary,6,5.5,27.6,167,106,196,120,Yes,7,5,57,Yes,Yes,Moderate,5–6 times/week,Good,High
+276,48,Male,Married,Middle,No,No,Low,4,6.6,23.3,175,92,163,94,No,6,4,80.5,No,No,Moderate,1–2 times/week,Excellent,Very High
+277,64,Female,Married,Low,No,No,Sedentary,Moderate,4.8,20.2,142,94,179,101,No,5,3,55.3,No,Yes,Moderate,1–2 times/week,Average,Moderate
+278,63,Male,Married,Low,No,No,Moderate,High,6.7,21.1,152,90,174,74,Yes,6,7,54.9,No,Yes,Mild,1–2 times/week,Excellent,Very Low
+279,42,Male,Married,Middle,No,No,Low,High,7.1,24.4,138,72,230,101,No,6,5,66,No,No,Severe,5–6 times/week,Good,Very High
+280,57,Female,Single,High,No,No,Low,Low,7.4,25.5,152,88,177,116,No,5,5,69.4,No,No,Moderate,Daily,Excellent,Moderate
+281,50,Female,Single,Middle,No,Yes,Moderate,4,7.2,29.2,152,107,198,89,No,7,5,71.8,No,No,Mild,Daily,Good,Moderate
+282,42,Female,Single,Low,No,No,Moderate,4,4.8,20.2,154,77,202,106,No,5,4,65.7,No,No,Severe,Never,Good,Very High
+283,37,Male,Single,Middle,No,No,Moderate,Moderate,4.5,25.2,169,85,222,96,No,4,6,73,No,No,Moderate,3–4 times/week,Excellent,Very High
+284,42,Male,Single,Low,Yes,Yes,Low,Moderate,7.2,30.2,143,95,199,98,No,3,5,69.9,No,No,Mild,1–2 times/week,Excellent,Very High
+285,35,Female,Married,Middle,No,Yes,Sedentary,Moderate,5.7,27.9,136,76,228,100,No,4,6,71.4,No,No,Mild,1–2 times/week,Very Poor,Very High
+286,61,Male,Single,Middle,Yes,No,High,2,7.4,24.3,163,88,177,125,No,9,5,71.1,Yes,No,Critical,1–2 times/week,Excellent,Moderate
+287,65,Female,Married,Very Low,No,Yes,Low,6,3.9,23.5,144,108,222,57,No,4,6,53.1,No,Yes,Moderate,Never,Excellent,Moderate
+288,65,Female,Married,High,No,No,High,6,4.4,25,163,91,207,73,Yes,4,9,51.7,Yes,Yes,Mild,Never,Average,Very High
+289,51,Female,Married,High,Yes,Yes,Low,6,5.8,26.8,147,82,183,94,Yes,6,5,59.4,No,Yes,Severe,Never,Good,High
+290,69,Female,Married,Middle,Yes,Yes,Sedentary,Moderate,7,22.7,154,122,202,96,No,5,5,55.3,No,Yes,Critical,Daily,Average,High
+291,48,Female,Single,Low,No,No,Moderate,2,6.7,21.9,119,92,201,97,No,6,5,68.6,No,No,Mild,Never,Good,Moderate
+292,59,Female,Married,Low,Yes,No,High,Moderate,7.1,19.6,147,90,248,126,No,5,6,56.1,Yes,Yes,Critical,Daily,Good,Moderate
+293,86,Male,Married,Very Low,No,Yes,High,Moderate,5.1,22.6,165,108,207,113,Yes,7,12,50,Yes,Yes,Severe,1–2 times/week,Very Poor,Very Low
+294,55,Female,Single,Very High,No,No,Sedentary,Very Low,6.6,24.5,132,90,181,86,No,7,1,72.3,No,No,Moderate,Daily,Poor,Very High
+295,49,Male,Single,Middle,No,Yes,Moderate,Very Low,8.2,22.2,143,98,181,76,No,7,4,79.3,No,No,Critical,1–2 times/week,Excellent,Very High
+296,54,Male,Single,Middle,Yes,Yes,High,8,4.6,29.1,153,96,194,72,No,6,4,53.8,No,Yes,Moderate,3–4 times/week,Very Poor,Low
+297,61,Female,Single,Low,No,Yes,Low,4,7,28.3,173,87,203,86,No,7,5,64.3,No,No,Severe,3–4 times/week,Average,Moderate
+298,33,Male,Married,Low,No,No,High,Low,7.7,16.8,97,94,222,118,No,7,8,88.1,No,No,Critical,1–2 times/week,Average,Moderate
+299,52,Female,Married,Low,Yes,Yes,Moderate,High,5,26.8,177,92,196,104,No,5,7,62.9,Yes,No,Severe,Never,Good,Low
+300,66,Male,Married,Low,Yes,Yes,Sedentary,6,6.2,29.4,175,99,187,102,Yes,2,8,51.7,Yes,Yes,Critical,1–2 times/week,Excellent,High
