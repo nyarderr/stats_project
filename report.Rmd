@@ -81,16 +81,19 @@ This report presents a comprehensive statistical and predictive analysis of a si
 # Executive Overview of Methodology {.unnumbered}
 To ensure a rigorous evaluation of the patient dataset, this analysis was conducted through a multi-phased approach:
 
-- Exploratory Data Analysis and Assumption Testing: Initial assessments, including Shapiro-Wilk and Levene's tests, were conducted to confirm the normality and homogeneity of variance for continuous variables like BMI and Health Score.
-- Hypothesis Testing: Parametric tests, including Independent Samples t-tests and One-Way Analysis of Variance (ANOVA) with Tukey's HSD post-hoc analysis, were utilized to evaluate the relationships between gender, physical activity, and health outcomes.
-- Predictive Modeling: A classical Multiple Logistic Regression model was developed to calculate the specific odds ratios of risk factors contributing to a "High Risk" patient classification.
-- Classification Analysis: A Machine Learning Decision Tree was implemented to provide an alternative, highly interpretable triage model. The performance of both models was rigorously compared using Accuracy, Precision, Recall, and ROC-AUC metrics to determine their suitability for deployment in a clinical setting.
+1. **Exploratory Data Analysis and Assumption Testing**: Initial assessments, including Shapiro-Wilk and Levene's tests, were conducted to confirm the normality and homogeneity of variance for continuous variables like BMI and Health Score.
+
+2. **Hypothesis Testing:** Parametric tests, including Independent Samples t-tests and One-Way Analysis of Variance (ANOVA) with Tukey's HSD post-hoc analysis, were utilized to evaluate the relationships between gender, physical activity, and health outcomes.
+
+3. **Predictive Modeling:** A classical Multiple Logistic Regression model was developed to calculate the specific odds ratios of risk factors contributing to a "High Risk" patient classification.
+
+4. **Classification Analysis:** A Machine Learning Decision Tree was implemented to provide an alternative, highly interpretable triage model. The performance of both models was rigorously compared using Accuracy, Precision, Recall, and ROC-AUC metrics to determine their suitability for deployment in a clinical setting.
 
 
 \newpage
 # Exploratory Data Analysis
 
-### Variables Selected
+### Variables Selected {.unnumbered}
 The following variables were selected from the main dataset Age, Gender, Physical Activity, DietQuality, BMI, HealthScore and HighRisk.
 
 |Category|Variable|Description|Data Type|
@@ -178,7 +181,7 @@ The patient population spans a wide age range (22–89 years), with a mean and m
 
 # Distributional Assessment and Assumptions
 
-### Variable Selection
+### Variable Selection {.unnumbered}
 To assess distributional properties and evaluate normality , three continuous variables were selected from the dataset: Age, BMI, and Health Score. 
 These three variables provide a comprehensive view of the patient profile. Age represents a fundamental demographic baseline, BMI serves as a primary clinical measurement, and Health Score acts as a key continuous outcome variable. Evaluating their distributions is necessary to determine whether parametric assumptions hold true for subsequent inferential statistics and predictive modeling
 

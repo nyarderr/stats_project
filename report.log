@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2026.2.25)  27 FEB 2026 08:34
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2026.2.25)  27 FEB 2026 08:56
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1004,7 +1004,7 @@ File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 \openout5 = `report.lot'.
 
 [2] [3]
-Overfull \hbox (19.0744pt too wide) in alignment at lines 245--245
+Overfull \hbox (19.0744pt too wide) in alignment at lines 246--246
  [] [] [] [] [] [] 
  []
 
@@ -1024,17 +1024,17 @@ File: src/plots/eda_plot_6.png Graphic file (type bmp)
 File: src/plots/eda_plot_7.png Graphic file (type bmp)
 <src/plots/eda_plot_7.png>
 
-Overfull \hbox (2.21999pt too wide) in paragraph at lines 302--309
+Overfull \hbox (2.21999pt too wide) in paragraph at lines 303--310
 [] []
  []
 
 
-Overfull \hbox (2.21999pt too wide) in paragraph at lines 302--309
+Overfull \hbox (2.21999pt too wide) in paragraph at lines 303--310
 [] []
  []
 
 
-Overfull \hbox (2.21999pt too wide) in paragraph at lines 302--309
+Overfull \hbox (2.21999pt too wide) in paragraph at lines 303--310
 [] []
  []
 
@@ -1046,7 +1046,7 @@ File: src/plots/eda_hist_density_BMI.png Graphic file (type bmp)
 File: src/plots/eda_hist_density_HealthScore.png Graphic file (type bmp)
 <src/plots/eda_hist_density_HealthScore.png>
 
-Overfull \hbox (2.21999pt too wide) in paragraph at lines 349--352
+Overfull \hbox (2.21999pt too wide) in paragraph at lines 351--354
 [][] []
  []
 
@@ -1058,67 +1058,67 @@ File: src/plots/qq_BMI.png Graphic file (type bmp)
 File: src/plots/qq_HealthScore.png Graphic file (type bmp)
 <src/plots/qq_HealthScore.png>
 
-Overfull \hbox (2.21999pt too wide) in paragraph at lines 361--364
+Overfull \hbox (2.21999pt too wide) in paragraph at lines 363--366
 [][] []
  []
 
 [8] [9]
-Overfull \hbox (20.56812pt too wide) in paragraph at lines 519--519
+Overfull \hbox (20.56812pt too wide) in paragraph at lines 521--521
  []|\TU/lmr/m/n/10 Mean_Health_Score|
  []
 
 [10]
-Overfull \hbox (20.29268pt too wide) in paragraph at lines 602--602
+Overfull \hbox (20.29268pt too wide) in paragraph at lines 604--604
  []|\TU/lmr/m/n/10 Degrees_of_Freedom|
  []
 
 
-Overfull \hbox (29.03711pt too wide) in alignment at lines 597--608
+Overfull \hbox (29.03711pt too wide) in alignment at lines 599--610
  [] [] [] [] [] [] 
  []
 
 [11]
-Overfull \hbox (4.02812pt too wide) in paragraph at lines 617--617
+Overfull \hbox (4.02812pt too wide) in paragraph at lines 619--619
  []|\TU/lmr/m/n/10 Mean_Difference|
  []
 
 
-Overfull \hbox (14.80989pt too wide) in alignment at lines 612--627
+Overfull \hbox (14.80989pt too wide) in alignment at lines 614--629
  [] [] [] [] [] [] 
  []
 
 [12]
-Overfull \hbox (17.54175pt too wide) in paragraph at lines 725--725
+Overfull \hbox (17.54175pt too wide) in paragraph at lines 727--727
 []|\TU/lmr/bx/n/10 PhysicalActivityLow|  
  []
 
 
-Overfull \hbox (45.60175pt too wide) in paragraph at lines 726--726
+Overfull \hbox (45.60175pt too wide) in paragraph at lines 728--728
 []|\TU/lmr/bx/n/10 PhysicalActivityModerate|  
  []
 
 
-Overfull \hbox (21.21175pt too wide) in paragraph at lines 728--728
+Overfull \hbox (21.21175pt too wide) in paragraph at lines 730--730
 []|\TU/lmr/bx/n/10 PhysicalActivityHigh|  
  []
 
 
-Overfull \hbox (13.39174pt too wide) in paragraph at lines 730--730
+Overfull \hbox (13.39174pt too wide) in paragraph at lines 732--732
 []|\TU/lmr/bx/n/10 DietQualityAverage|  
  []
 
 
-Overfull \hbox (1.18175pt too wide) in paragraph at lines 731--731
+Overfull \hbox (1.18175pt too wide) in paragraph at lines 733--733
 []|\TU/lmr/bx/n/10 DietQualityGood|  
  []
 
 
-Overfull \hbox (19.81174pt too wide) in paragraph at lines 732--732
+Overfull \hbox (19.81174pt too wide) in paragraph at lines 734--734
 []|\TU/lmr/bx/n/10 DietQualityExcellent|  
  []
 
 
-Overfull \hbox (52.12445pt too wide) in alignment at lines 715--734
+Overfull \hbox (52.12445pt too wide) in alignment at lines 717--736
  [] [] [] [] [] [] 
  []
 
@@ -1140,7 +1140,7 @@ LaTeX Warning: There were multiply-defined labels.
 Here is how much of TeX's memory you used:
  20560 strings out of 470190
  375693 string characters out of 5478216
- 963859 words of memory out of 5000000
+ 964833 words of memory out of 5000000
  48853 multiletter control sequences out of 15000+600000
  631348 words of font info for 71 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
