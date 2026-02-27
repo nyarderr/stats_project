@@ -532,7 +532,7 @@ Hospital IT leadership should integrate the Machine Learning Decision Tree into 
 
 # Appendix
 ## Data and Code Availability
-In the interest of scientific transparency and computational reproducibility, the complete source code utilized for data cleaning, exploratory data analysis, classical statistical modeling, and machine learning classification has been made publicly available. All R scripts and data wrangling pipelines are hosted in a dedicated repository, which can be accessed at: github.com/nyarderr/stats_project.
+In the interest of scientific transparency and computational reproducibility, the complete source code utilized for data cleaning, exploratory data analysis, classical statistical modeling, and machine learning classification has been made publicly available. All R scripts and data wrangling pipelines are hosted in a dedicated repository, which can be accessed at: https://github.com/nyarderr/stats_project
 
 
 
